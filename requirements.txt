@@ -1,0 +1,5 @@
+django
+djangorestframework
+python-dotenv
+psycopg
+django-cors-headers 
