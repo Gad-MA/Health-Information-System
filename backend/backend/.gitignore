@@ -1,0 +1,46 @@
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment
+.venv/
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+*.iml
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+*.bak
+*.swp
+*.swo
+
+# Ignore SQLite database files (if applicable)
+*.sqlite3
+*.db
+
+# Ignore configuration files
+*.env
+
+# Ignore other OS-related files
+*.desktop
+
+# Optional: Ignore temporary .sql files
+# Uncomment the next line to ignore temp backup .sql files
+# *.sql.bak
+
+# Ignore everything outside the project directory (from the root directory)
+*/*
+
+# Don't ignore the files that we actually want to commit
+!Health-Information-System/
+!Health-Information-System/backend/
+!Health-Information-System/backend/backend/settings.py
+!Health-Information-System/backend/backend/schema.sql
