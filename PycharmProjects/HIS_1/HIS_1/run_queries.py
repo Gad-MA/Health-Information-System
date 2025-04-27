@@ -2,26 +2,20 @@ import os
 from dotenv import load_dotenv
 import psycopg2
 
-# Load environment variables from the .env file
+
 load_dotenv()
 
 
-DB_NAME = os.getenv('DB_NAME')
-DB_USER = os.getenv('DB_USER')
-DB_PASSWORD = os.getenv('DB_PASSWORD')
-DB_HOST = os.getenv('DB_HOST')
-DB_PORT = os.getenv('DB_PORT')
 
 # Connect to PostgresSQL
 conn = psycopg2.connect(
-    dbname=DB_NAME,
-    user=DB_USER,
-    password=DB_PASSWORD,
-    host=DB_HOST,
-    port=DB_PORT
+    host=os.getenv('PGHOST'),
+    dbname=os.getenv('PGDATABASE'),
+    user=os.getenv('PGUSER'),
+    password=os.getenv('PGPASSWORD')
 )
 
-# Create a cursor object
+
 cur = conn.cursor()
 
 
@@ -72,7 +66,7 @@ queries = [
     """
 ]
 
-# Execute
+
 for query in queries:
     try:
         cur.execute(query)
@@ -80,7 +74,7 @@ for query in queries:
     except Exception as e:
         print(f"Error executing query: {e}")
 
-# Commit changes and close the connection
+
 conn.commit()
 cur.close()
 conn.close()
