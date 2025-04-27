@@ -75,5 +75,4 @@ CREATE TABLE Scan (
     scan_type VARCHAR(100)
 );
 
-GRANT ALL PRIVILEGES ON SCHEMA public TO information_system_owner;
-
+GRANT ALL PRIVILEGES ON SCHEMA public TO information_system_own
