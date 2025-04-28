@@ -8,5 +8,14 @@
       <jdbc-url>jdbc:postgresql://ep-super-voice-a2tcnilb-pooler.eu-central-1.aws.neon.tech:5432/information_system</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="8df75111-bd9a-434a-b450-d4cdcd14f12f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/backend/backend/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ep-super-voice-a2tcnilb-pooler.eu-central-1.aws.neon.tech:5432/information_system</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
