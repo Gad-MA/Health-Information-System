@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth.hashers import make_password
 from .models import Patient, Doctors, Scan, Appointment, FamilyRelatives, Grouptable, MedicalHistory
 
 class PatientSerializer(serializers.ModelSerializer):
@@ -6,10 +7,24 @@ class PatientSerializer(serializers.ModelSerializer):
         model = Patient
         fields = '__all__'
 
+    def create(self, validated_data):
+        # Hash the password before saving
+        raw_password = validated_data.pop('password', None)
+        if raw_password:
+            validated_data['password'] = make_password(raw_password)
+        return super().create(validated_data)
+
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctors
         fields = '__all__'
+
+    def create(self, validated_data):
+        # Hash the password before saving
+        raw_password = validated_data.pop('password', None)
+        if raw_password:
+            validated_data['password'] = make_password(raw_password)
+        return super().create(validated_data)
 
 class ScanSerializer(serializers.ModelSerializer):
     class Meta:

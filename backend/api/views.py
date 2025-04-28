@@ -1,8 +1,66 @@
+from django.contrib.auth.hashers import check_password
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Patient, Doctors, Scan, Appointment, FamilyRelatives, Grouptable, MedicalHistory
 from .serializers import PatientSerializer, DoctorSerializer, ScanSerializer, AppointmentSerializer, FamilyRelativesSerializer, GrouptableSerializer, MedicalHistorySerializer
+
+
+
+
+# login APIs
+
+@api_view(['POST'])
+def login(request):
+    """
+    POST { "email": "...", "password": "..." }
+    """
+    email    = request.data.get('email')
+    password = request.data.get('password')
+
+    if not email or not password:
+        return Response(
+            {"detail": "Email and password are required."},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    # First try patients:
+    try:
+        user = Patient.objects.get(email=email)
+        role = 'patient'
+    except Patient.DoesNotExist:
+        # Then try doctors:
+        try:
+            user = Doctors.objects.get(email=email)
+            role = 'doctor'
+        except Doctors.DoesNotExist:
+            return Response(
+                {"detail": "Invalid credentials."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+    # Now check password; assumes you’ve hashed passwords when saving:
+    if not check_password(password, user.password):
+        return Response(
+            {"detail": "Invalid credentials."},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+
+    # If you reach here, authentication succeeded.
+    if role == 'patient':
+        serializer = PatientSerializer(user)
+    else:
+        serializer = DoctorSerializer(user)
+
+    return Response({
+        "role": role,
+        "user": serializer.data
+    }, status=status.HTTP_200_OK)
+
+
+
+
+
 
 # Patient APIs
 
@@ -21,7 +79,7 @@ def patients_list_create(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 def patient_detail(request, pk):
     try:
         patient = Patient.objects.get(pk=pk)
@@ -34,6 +92,13 @@ def patient_detail(request, pk):
 
     elif request.method == 'PUT':
         serializer = PatientSerializer(patient, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'PATCH':
+        serializer = PatientSerializer(patient, data=request.data, partial=True)  # partial=True allows partial updates
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

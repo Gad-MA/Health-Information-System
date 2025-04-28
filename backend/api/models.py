@@ -16,10 +16,12 @@ class Doctors(models.Model):
     secondry_mobile_no = models.CharField(max_length=20, blank=True, null=True)
     email = models.CharField(max_length=255, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
+    password = models.CharField(max_length=128, blank=False, null=False)  # Add password field
 
     class Meta:
         managed = False
         db_table = 'doctors'
+
 
 class Patient(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
@@ -32,10 +34,12 @@ class Patient(models.Model):
     address = models.TextField(blank=True, null=True)
     referred_by = models.ForeignKey(Doctors, models.DO_NOTHING, db_column='referred_by', blank=True, null=True)
     blood_type = models.CharField(max_length=5, blank=True, null=True)
+    password = models.CharField(max_length=128, blank=False, null=False)  # Add password field
 
     class Meta:
         managed = False
         db_table = 'patient'
+
 
 class Appointment(models.Model):
     patient = models.ForeignKey('Patient', models.DO_NOTHING, blank=True, null=True)
@@ -45,8 +49,6 @@ class Appointment(models.Model):
     class Meta:
         managed = False
         db_table = 'appointment'
-
-
 
 
 class FamilyRelatives(models.Model):
@@ -87,8 +89,6 @@ class MedicalHistory(models.Model):
     class Meta:
         managed = False
         db_table = 'medical_history'
-
-
 
 
 class Scan(models.Model):
