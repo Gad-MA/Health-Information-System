@@ -1,0 +1,24 @@
+name: Deploy to Defang Playground
+
+on:
+  push:
+    branches: [main]  # or "dev" if you use a dev branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Defang CLI
+        run: |
+          curl -fsSL https://s.defang.io/install | bash
+          echo "$HOME/.defang/bin" >> $GITHUB_PATH
+
+      - name: Deploy to Defang
+        env:
+          DEFANG_TOKEN: ${{ secrets.DEFANG_TOKEN }}
+        run: |
+          defang login --token "$DEFANG_TOKEN"
+          defang compose up
