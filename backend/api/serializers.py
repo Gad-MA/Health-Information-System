@@ -1,15 +1,32 @@
 from rest_framework import serializers
 from .models import Patient, Doctors, Scan, Appointment, FamilyRelatives, Grouptable, MedicalHistory
 
+
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
         fields = '__all__'
 
+    def get_photo_url(self, obj):
+        if obj.photo_url:
+            return obj.photo_url
+        return self.context['request'].build_absolute_uri(
+            '/static/images/default_profile.png'
+        )
+
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctors
         fields = '__all__'
+
+    def get_photo_url(self, obj):
+        if obj.photo_url:
+            return obj.photo_url
+        return self.context['request'].build_absolute_uri(
+            '/static/images/default_profile.png'
+        )
+
+
 
 class ScanSerializer(serializers.ModelSerializer):
     class Meta:
