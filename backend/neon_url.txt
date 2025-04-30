@@ -1,1 +1,0 @@
-postgresql://information_system_owner:npg_eQGS4ON2XMBq@ep-super-voice-a2tcnilb-pooler.eu-central-1.aws.neon.tech:5432/information_system?sslmode=require
