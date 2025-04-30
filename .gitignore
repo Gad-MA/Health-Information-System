@@ -313,6 +313,22 @@ cython_debug/
 .history
 .ionide
 
+
+# Ignore GitHub system folder
+.github/
+
+# Ignore Docker-related files in backend/
+backend/.dockerignore
+backend/docker-compose.yaml
+backend/Dockerfile
+
+# Ignore sensitive or debug files
+backend/allowed_hosts.txt
+backend/debug.txt
+backend/neon_url.txt
+backend/requirements.txt
+backend/secret_key.txt
+backend/New Text Document.txt
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pythonvanilla,visualstudiocode,pydev,pycharm
