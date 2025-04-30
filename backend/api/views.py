@@ -88,11 +88,11 @@ def patients_list_create(request):
     """
     if request.method == 'GET':
         patients = Patient.objects.all()
-        serializer = PatientSerializer(patients, many=True)
+        serializer = PatientSerializer(patients, many=True, context={'request': request})
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = PatientSerializer(data=request.data)
+        serializer = PatientSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -110,7 +110,7 @@ def patient_detail(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = PatientSerializer(patient)
+        serializer = PatientSerializer(patient, context={'request': request})
         return Response(serializer.data)
 
     elif request.method in ['PUT', 'PATCH']:
@@ -134,11 +134,11 @@ def doctors_list_create(request):
     """
     if request.method == 'GET':
         doctors = Doctors.objects.all()
-        serializer = DoctorSerializer(doctors, many=True)
+        serializer = DoctorSerializer(doctors, many=True, context={'request': request})
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = DoctorSerializer(data=request.data)
+        serializer = DoctorSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -156,12 +156,14 @@ def doctor_detail(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = DoctorSerializer(doctor)
+        serializer = DoctorSerializer(doctor, context={'request': request})
         return Response(serializer.data)
+
 
     elif request.method in ['PUT', 'PATCH']:
         partial = request.method == 'PATCH'  # Support partial updates
         serializer = DoctorSerializer(doctor, data=request.data, partial=partial)
+
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

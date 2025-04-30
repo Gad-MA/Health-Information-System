@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 from .models import Patient, Doctors, Scan, Appointment, FamilyRelatives, Grouptable, MedicalHistory
 
+
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
@@ -13,18 +14,19 @@ class PatientSerializer(serializers.ModelSerializer):
         if raw_password:
             validated_data['password'] = make_password(raw_password)
         return super().create(validated_data)
+      
+    def get_photo_url(self, obj):
+        if obj.photo_url:
+            return obj.photo_url
+        return self.context['request'].build_absolute_uri(
+            '/static/images/default_profile.png'
+        )
+
 
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctors
         fields = '__all__'
-
-    def create(self, validated_data):
-        # Hash the password before saving
-        raw_password = validated_data.pop('password', None)
-        if raw_password:
-            validated_data['password'] = make_password(raw_password)
-        return super().create(validated_data)
 
 class ScanSerializer(serializers.ModelSerializer):
     class Meta:
