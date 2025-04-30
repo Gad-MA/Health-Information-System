@@ -2,7 +2,7 @@ name: Deploy to Defang Playground
 
 on:
   push:
-    branches: [main]  # or "dev" if you use a dev branch
+    branches: [frontend]  #
 
 jobs:
   deploy:
