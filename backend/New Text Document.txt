@@ -1,0 +1,250 @@
+iadbdo@Zee-Lestrange:/mnt/c/Users/ZiadAbdo/Surgery-Department/Health-Information-System/backend$ defang compose up
+ ! /mnt/c/Users/ZiadAbdo/Surgery-Department/Health-Information-System/backend/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+ * Using Defang Playground provider from stored preference
+ ! service "web": ingress port without healthcheck defaults to GET / HTTP/1.1
+ ! service "web": missing memory reservation; using provider-specific defaults. Specify deploy.resources.reservations.memory to avoid out-of-memory errors
+ * Packaging the project files for web at /mnt/c/Users/ZiadAbdo/Surgery-Department/Health-Information-System/backend
+ * Uploading the project files for web
+ ! service "web": environment variable(s) ["DATABASE_URL", "SECRET_KEY", "DEBUG", "ALLOWED_HOSTS"] overridden by config
+ * Monitor your services' status in the defang portal
+   - https://portal.defang.io/service/web
+ * Tailing logs for deployment ID 10grj9h6kl9a ; press Ctrl+C to detach:
+ * Showing only build logs and runtime errors. Press V to toggle verbose mode.
+2025-04-30T04:49:21.342+03:00 cd Update started for stack Ziad-Ashraf-Abdu-prod1
+2025-04-30T04:49:25.576+03:00 cd  ** Building image for "web"...
+2025-04-30T04:49:25.607+03:00 cd  ** Updating service "web"
+2025-04-30T04:49:57.676+03:00 web-image Requirement already satisfied: pip in /usr/local/lib/python3.11/site-packages (24.0)
+2025-04-30T04:49:57.817+03:00 web-image Collecting pip
+2025-04-30T04:49:57.873+03:00 web-image   Downloading pip-25.1-py3-none-any.whl.metadata (3.6 kB)
+2025-04-30T04:49:57.888+03:00 web-image Downloading pip-25.1-py3-none-any.whl (1.8 MB)
+2025-04-30T04:49:58.031+03:00 web-image    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 13.2 MB/s eta 0:00:00
+2025-04-30T04:49:58.078+03:00 web-image Installing collected packages: pip
+2025-04-30T04:49:58.078+03:00 web-image   Attempting uninstall: pip
+2025-04-30T04:49:58.080+03:00 web-image     Found existing installation: pip 24.0
+2025-04-30T04:49:58.116+03:00 web-image     Uninstalling pip-24.0:
+2025-04-30T04:49:58.120+03:00 web-image       Successfully uninstalled pip-24.0
+2025-04-30T04:49:58.987+03:00 web-image Successfully installed pip-25.1
+2025-04-30T04:50:00.059+03:00 web-image Collecting gunicorn (from -r requirements.txt (line 1))
+2025-04-30T04:50:00.118+03:00 web-image   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+2025-04-30T04:50:00.235+03:00 web-image Collecting django (from -r requirements.txt (line 2))
+2025-04-30T04:50:00.245+03:00 web-image   Downloading Django-5.2-py3-none-any.whl.metadata (4.1 kB)
+2025-04-30T04:50:00.294+03:00 web-image Collecting djangorestframework (from -r requirements.txt (line 3))
+2025-04-30T04:50:00.303+03:00 web-image   Downloading djangorestframework-3.16.0-py3-none-any.whl.metadata (11 kB)
+2025-04-30T04:50:00.345+03:00 web-image Collecting python-dotenv (from -r requirements.txt (line 4))
+2025-04-30T04:50:00.355+03:00 web-image   Downloading python_dotenv-1.1.0-py3-none-any.whl.metadata (24 kB)
+2025-04-30T04:50:00.397+03:00 web-image Collecting psycopg (from -r requirements.txt (line 5))
+2025-04-30T04:50:00.407+03:00 web-image   Downloading psycopg-3.2.6-py3-none-any.whl.metadata (4.4 kB)
+2025-04-30T04:50:00.447+03:00 web-image Collecting django-cors-headers (from -r requirements.txt (line 6))
+2025-04-30T04:50:00.459+03:00 web-image   Downloading django_cors_headers-4.7.0-py3-none-any.whl.metadata (16 kB)
+2025-04-30T04:50:00.495+03:00 web-image Collecting packaging (from gunicorn->-r requirements.txt (line 1))
+2025-04-30T04:50:00.504+03:00 web-image   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-04-30T04:50:00.541+03:00 web-image Collecting asgiref>=3.8.1 (from django->-r requirements.txt (line 2))
+2025-04-30T04:50:00.550+03:00 web-image   Downloading asgiref-3.8.1-py3-none-any.whl.metadata (9.3 kB)
+2025-04-30T04:50:00.581+03:00 web-image Collecting sqlparse>=0.3.1 (from django->-r requirements.txt (line 2))
+2025-04-30T04:50:00.589+03:00 web-image   Downloading sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+2025-04-30T04:50:00.644+03:00 web-image Collecting typing-extensions>=4.6 (from psycopg->-r requirements.txt (line 5))
+2025-04-30T04:50:00.652+03:00 web-image   Downloading typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+2025-04-30T04:50:00.675+03:00 web-image Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+2025-04-30T04:50:00.701+03:00 web-image Downloading Django-5.2-py3-none-any.whl (8.3 MB)
+2025-04-30T04:50:00.769+03:00 web-image    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 139.7 MB/s eta 0:00:00
+2025-04-30T04:50:00.781+03:00 web-image Downloading djangorestframework-3.16.0-py3-none-any.whl (1.1 MB)
+2025-04-30T04:50:00.791+03:00 web-image    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 103.8 MB/s eta 0:00:00
+2025-04-30T04:50:00.800+03:00 web-image Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
+2025-04-30T04:50:00.812+03:00 web-image Downloading psycopg-3.2.6-py3-none-any.whl (199 kB)
+2025-04-30T04:50:00.825+03:00 web-image Downloading django_cors_headers-4.7.0-py3-none-any.whl (12 kB)
+2025-04-30T04:50:00.837+03:00 web-image Downloading asgiref-3.8.1-py3-none-any.whl (23 kB)
+2025-04-30T04:50:00.848+03:00 web-image Downloading sqlparse-0.5.3-py3-none-any.whl (44 kB)
+2025-04-30T04:50:00.860+03:00 web-image Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+2025-04-30T04:50:00.873+03:00 web-image Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-04-30T04:50:00.971+03:00 web-image Installing collected packages: typing-extensions, sqlparse, python-dotenv, packaging, asgiref, psycopg, gunicorn, django, djangorestframework, django-cors-headers
+2025-04-30T04:50:03.099+03:00 web-image Successfully installed asgiref-3.8.1 django-5.2 django-cors-headers-4.7.0 djangorestframework-3.16.0 gunicorn-23.0.0 packaging-25.0 psycopg-3.2.6 python-dotenv-1.1.0 sqlparse-0.5.3 typing-extensions-4.13.2
+2025-04-30T04:50:07.506+03:00 web-image Traceback (most recent call last):
+2025-04-30T04:50:07.506+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/backends/postgresql/base.py", line 25, in <module>
+2025-04-30T04:50:07.506+03:00 web-image     import psycopg as Database
+2025-04-30T04:50:07.506+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/psycopg/__init__.py", line 9, in <module>
+2025-04-30T04:50:07.506+03:00 web-image     from . import pq  # noqa: F401 import early to stabilize side effects
+2025-04-30T04:50:07.506+03:00 web-image     ^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.506+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/psycopg/pq/__init__.py", line 116, in <module>
+2025-04-30T04:50:07.507+03:00 web-image     import_from_libpq()
+2025-04-30T04:50:07.507+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/psycopg/pq/__init__.py", line 108, in import_from_libpq
+2025-04-30T04:50:07.507+03:00 web-image     raise ImportError(
+2025-04-30T04:50:07.507+03:00 web-image ImportError: no pq wrapper available.
+2025-04-30T04:50:07.507+03:00 web-image Attempts made:
+2025-04-30T04:50:07.507+03:00 web-image - couldn't import psycopg 'c' implementation: No module named 'psycopg_c'
+2025-04-30T04:50:07.507+03:00 web-image - couldn't import psycopg 'binary' implementation: No module named 'psycopg_binary'
+2025-04-30T04:50:07.507+03:00 web-image - couldn't import psycopg 'python' implementation: libpq library not found
+2025-04-30T04:50:07.507+03:00 web-image During handling of the above exception, another exception occurred:
+2025-04-30T04:50:07.507+03:00 web-image Traceback (most recent call last):
+2025-04-30T04:50:07.507+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/backends/postgresql/base.py", line 27, in <module>
+2025-04-30T04:50:07.507+03:00 web-image     import psycopg2 as Database
+2025-04-30T04:50:07.507+03:00 web-image ModuleNotFoundError: No module named 'psycopg2'
+2025-04-30T04:50:07.507+03:00 web-image During handling of the above exception, another exception occurred:
+2025-04-30T04:50:07.507+03:00 web-image Traceback (most recent call last):
+2025-04-30T04:50:07.507+03:00 web-image   File "/app/manage.py", line 22, in <module>
+2025-04-30T04:50:07.507+03:00 web-image     main()
+2025-04-30T04:50:07.507+03:00 web-image   File "/app/manage.py", line 18, in main
+2025-04-30T04:50:07.507+03:00 web-image     execute_from_command_line(sys.argv)
+2025-04-30T04:50:07.507+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+2025-04-30T04:50:07.507+03:00 web-image     utility.execute()
+2025-04-30T04:50:07.507+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/core/management/__init__.py", line 416, in execute
+2025-04-30T04:50:07.507+03:00 web-image     django.setup()
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/__init__.py", line 24, in setup
+2025-04-30T04:50:07.508+03:00 web-image     apps.populate(settings.INSTALLED_APPS)
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/apps/registry.py", line 116, in populate
+2025-04-30T04:50:07.508+03:00 web-image     app_config.import_models()
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/apps/config.py", line 269, in import_models
+2025-04-30T04:50:07.508+03:00 web-image     self.models_module = import_module(models_module_name)
+2025-04-30T04:50:07.508+03:00 web-image                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+2025-04-30T04:50:07.508+03:00 web-image     return _bootstrap._gcd_import(name[level:], package, level)
+2025-04-30T04:50:07.508+03:00 web-image            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.508+03:00 web-image   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+2025-04-30T04:50:07.508+03:00 web-image   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+2025-04-30T04:50:07.508+03:00 web-image   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+2025-04-30T04:50:07.508+03:00 web-image   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+2025-04-30T04:50:07.508+03:00 web-image   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+2025-04-30T04:50:07.508+03:00 web-image   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/contrib/auth/models.py", line 5, in <module>
+2025-04-30T04:50:07.508+03:00 web-image     from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/contrib/auth/base_user.py", line 43, in <module>
+2025-04-30T04:50:07.508+03:00 web-image     class AbstractBaseUser(models.Model):
+2025-04-30T04:50:07.508+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 145, in __new__
+2025-04-30T04:50:07.509+03:00 web-image     new_class.add_to_class("_meta", Options(meta, app_label))
+2025-04-30T04:50:07.509+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 373, in add_to_class
+2025-04-30T04:50:07.509+03:00 web-image     value.contribute_to_class(cls, name)
+2025-04-30T04:50:07.509+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/models/options.py", line 238, in contribute_to_class
+2025-04-30T04:50:07.509+03:00 web-image     self.db_table, connection.ops.max_name_length()
+2025-04-30T04:50:07.509+03:00 web-image                    ^^^^^^^^^^^^^^
+2025-04-30T04:50:07.509+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/utils/connection.py", line 15, in __getattr__
+2025-04-30T04:50:07.509+03:00 web-image     return getattr(self._connections[self._alias], item)
+2025-04-30T04:50:07.509+03:00 web-image                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-04-30T04:50:07.509+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/utils/connection.py", line 62, in __getitem__
+2025-04-30T04:50:07.509+03:00 web-image     conn = self.create_connection(alias)
+2025-04-30T04:50:07.509+03:00 web-image            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.509+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 193, in create_connection
+2025-04-30T04:50:07.509+03:00 web-image     backend = load_backend(db["ENGINE"])
+2025-04-30T04:50:07.510+03:00 web-image               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.510+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 113, in load_backend
+2025-04-30T04:50:07.510+03:00 web-image     return import_module("%s.base" % backend_name)
+2025-04-30T04:50:07.510+03:00 web-image            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.510+03:00 web-image   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+2025-04-30T04:50:07.510+03:00 web-image     return _bootstrap._gcd_import(name[level:], package, level)
+2025-04-30T04:50:07.510+03:00 web-image            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:50:07.510+03:00 web-image   File "/usr/local/lib/python3.11/site-packages/django/db/backends/postgresql/base.py", line 29, in <module>
+2025-04-30T04:50:07.510+03:00 web-image     raise ImproperlyConfigured("Error loading psycopg2 or psycopg module")
+2025-04-30T04:50:07.510+03:00 web-image django.core.exceptions.ImproperlyConfigured: Error loading psycopg2 or psycopg module
+2025-04-30T04:50:07.552+03:00 web-image collectstatic failed (probably missing env vars), continuing...
+2025-04-30T04:50:31.523+03:00 cd  ** Build succeeded for "web"
+2025-04-30T04:50:32.051+03:00 cd  ** Updated service "web" to revision 1
+2025-04-30T04:50:36.268+03:00 cd Update succeeded in 1m14.962313416s ; provisioning...
+2025-04-30T04:51:15.638+03:00 web [2025-04-30 01:51:15 +0000] [1] [INFO] Starting gunicorn 23.0.0
+2025-04-30T04:51:15.640+03:00 web [2025-04-30 01:51:15 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+2025-04-30T04:51:15.640+03:00 web [2025-04-30 01:51:15 +0000] [1] [INFO] Using worker: sync
+2025-04-30T04:51:15.643+03:00 web [2025-04-30 01:51:15 +0000] [7] [INFO] Booting worker with pid: 7
+2025-04-30T04:51:19.451+03:00 web [2025-04-30 01:51:19 +0000] [7] [ERROR] Exception in worker process
+2025-04-30T04:51:19.834+03:00 web [2025-04-30 01:51:19 +0000] [1] [ERROR] Worker (pid:7) exited with code 3
+2025-04-30T04:51:19.834+03:00 web [2025-04-30 01:51:19 +0000] [1] [ERROR] Shutting down: Master
+2025-04-30T04:51:19.834+03:00 web [2025-04-30 01:51:19 +0000] [1] [ERROR] Reason: Worker failed to boot.
+2025-04-30T04:51:19.451+03:00 web Traceback (most recent call last):
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/backends/postgresql/base.py", line 25, in <module>
+2025-04-30T04:51:19.451+03:00 web     import psycopg as Database
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/psycopg/__init__.py", line 9, in <module>
+2025-04-30T04:51:19.451+03:00 web     from . import pq  # noqa: F401 import early to stabilize side effects
+2025-04-30T04:51:19.451+03:00 web     ^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/psycopg/pq/__init__.py", line 116, in <module>
+2025-04-30T04:51:19.451+03:00 web     import_from_libpq()
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/psycopg/pq/__init__.py", line 108, in import_from_libpq
+2025-04-30T04:51:19.451+03:00 web     raise ImportError(
+2025-04-30T04:51:19.451+03:00 web ImportError: no pq wrapper available.
+2025-04-30T04:51:19.451+03:00 web Attempts made:
+2025-04-30T04:51:19.451+03:00 web - couldn't import psycopg 'c' implementation: No module named 'psycopg_c'
+2025-04-30T04:51:19.451+03:00 web - couldn't import psycopg 'binary' implementation: No module named 'psycopg_binary'
+2025-04-30T04:51:19.451+03:00 web - couldn't import psycopg 'python' implementation: libpq library not found
+2025-04-30T04:51:19.451+03:00 web During handling of the above exception, another exception occurred:
+2025-04-30T04:51:19.451+03:00 web Traceback (most recent call last):
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/backends/postgresql/base.py", line 27, in <module>
+2025-04-30T04:51:19.451+03:00 web     import psycopg2 as Database
+2025-04-30T04:51:19.451+03:00 web ModuleNotFoundError: No module named 'psycopg2'
+2025-04-30T04:51:19.451+03:00 web During handling of the above exception, another exception occurred:
+2025-04-30T04:51:19.451+03:00 web Traceback (most recent call last):
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+2025-04-30T04:51:19.451+03:00 web     worker.init_process()
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/workers/base.py", line 135, in init_process
+2025-04-30T04:51:19.451+03:00 web     self.load_wsgi()
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+2025-04-30T04:51:19.451+03:00 web     self.wsgi = self.app.wsgi()
+2025-04-30T04:51:19.451+03:00 web                 ^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/app/base.py", line 66, in wsgi
+2025-04-30T04:51:19.451+03:00 web     self.callable = self.load()
+2025-04-30T04:51:19.451+03:00 web                     ^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+2025-04-30T04:51:19.451+03:00 web     return self.load_wsgiapp()
+2025-04-30T04:51:19.451+03:00 web            ^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+2025-04-30T04:51:19.451+03:00 web     return util.import_app(self.app_uri)
+2025-04-30T04:51:19.451+03:00 web            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/gunicorn/util.py", line 370, in import_app
+2025-04-30T04:51:19.451+03:00 web     mod = importlib.import_module(module)
+2025-04-30T04:51:19.451+03:00 web           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+2025-04-30T04:51:19.451+03:00 web     return _bootstrap._gcd_import(name[level:], package, level)
+2025-04-30T04:51:19.451+03:00 web            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+2025-04-30T04:51:19.451+03:00 web   File "/app/backend/wsgi.py", line 16, in <module>
+2025-04-30T04:51:19.451+03:00 web     application = get_wsgi_application()
+2025-04-30T04:51:19.451+03:00 web                   ^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+2025-04-30T04:51:19.451+03:00 web     django.setup(set_prefix=False)
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/__init__.py", line 24, in setup
+2025-04-30T04:51:19.451+03:00 web     apps.populate(settings.INSTALLED_APPS)
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/apps/registry.py", line 116, in populate
+2025-04-30T04:51:19.451+03:00 web     app_config.import_models()
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/apps/config.py", line 269, in import_models
+2025-04-30T04:51:19.451+03:00 web     self.models_module = import_module(models_module_name)
+2025-04-30T04:51:19.451+03:00 web                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+2025-04-30T04:51:19.451+03:00 web     return _bootstrap._gcd_import(name[level:], package, level)
+2025-04-30T04:51:19.451+03:00 web            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+2025-04-30T04:51:19.451+03:00 web   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+2025-04-30T04:51:19.451+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/contrib/auth/models.py", line 5, in <module>
+2025-04-30T04:51:19.451+03:00 web     from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/contrib/auth/base_user.py", line 43, in <module>
+2025-04-30T04:51:19.452+03:00 web     class AbstractBaseUser(models.Model):
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 145, in __new__
+2025-04-30T04:51:19.452+03:00 web     new_class.add_to_class("_meta", Options(meta, app_label))
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 373, in add_to_class
+2025-04-30T04:51:19.452+03:00 web     value.contribute_to_class(cls, name)
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/models/options.py", line 238, in contribute_to_class
+2025-04-30T04:51:19.452+03:00 web     self.db_table, connection.ops.max_name_length()
+2025-04-30T04:51:19.452+03:00 web                    ^^^^^^^^^^^^^^
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/utils/connection.py", line 15, in __getattr__
+2025-04-30T04:51:19.452+03:00 web     return getattr(self._connections[self._alias], item)
+2025-04-30T04:51:19.452+03:00 web                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/utils/connection.py", line 62, in __getitem__
+2025-04-30T04:51:19.452+03:00 web     conn = self.create_connection(alias)
+2025-04-30T04:51:19.452+03:00 web            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 193, in create_connection
+2025-04-30T04:51:19.452+03:00 web     backend = load_backend(db["ENGINE"])
+2025-04-30T04:51:19.452+03:00 web               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 113, in load_backend
+2025-04-30T04:51:19.452+03:00 web     return import_module("%s.base" % backend_name)
+2025-04-30T04:51:19.452+03:00 web            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+2025-04-30T04:51:19.452+03:00 web     return _bootstrap._gcd_import(name[level:], package, level)
+2025-04-30T04:51:19.452+03:00 web            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-04-30T04:51:19.452+03:00 web   File "/usr/local/lib/python3.11/site-packages/django/db/backends/postgresql/base.py", line 29, in <module>
+2025-04-30T04:51:19.452+03:00 web     raise ImproperlyConfigured("Error loading psycopg2 or psycopg module")
+2025-04-30T04:51:19.452+03:00 web django.core.exceptions.ImproperlyConfigured: Error loading psycopg2 or psycopg module
+2025-04-30T04:51:19.452+03:00 web [2025-04-30 01:51:19 +0000] [7] [INFO] Worker exiting (pid: 7)
+ ! deployment failed for service "web": TASK_FAILED web_10grj9h6kl9a exited with code 3
+? Would you like to debug the deployment with AI? [? for help] (y/N)
